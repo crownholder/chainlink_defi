@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract ChemistryLab is ChainlinkClient, Ownable {
-    string public name = "Antidote Exchange";
+    string public name = "Antidote";
     IERC20 public dappToken;
 
     address[] public stakers;
