@@ -1,4 +1,4 @@
-const Antidote = artifacts.require("Antidote");
+const ADot = artifacts.require("ADot");
 const DexLab = artifacts.require("DexLab");
 const { LinkToken } = require("@chainlink/contracts/truffle/v0.4/LinkToken");
 
@@ -11,33 +11,33 @@ function tokens(n) {
 }
 
 contract("TokenFarm", ([owner, investor]) => {
-  let dappToken, tokenFarm, linkToken;
+  let ADot, DExLab, linkToken;
 
   before(async () => {
     // Load Contracts
-    dappToken = await DappToken.new();
-    tokenFarm = await TokenFarm.new(dappToken.address);
+    ADot = await ADot.new();
+    DexLab = await DexLab.new(ADot.address);
     // linkToken = await LinkToken.new()
 
     // Transfer all Dapp tokens to farm (1 million)
-    await dappToken.transfer(tokenFarm.address, tokens("1000000"));
+    await ADot.transfer(DexLab.address, tokens("9000000"));
   });
 
   describe("Dapp Token deployment", async () => {
     it("has a name", async () => {
-      const name = await dappToken.name();
-      assert.equal(name, "DApp Token");
+      const name = await ADot.name();
+      assert.equal(name, "Antidote");
     });
   });
 
   describe("Token Farm deployment", async () => {
     it("has a name", async () => {
-      const name = await tokenFarm.name();
-      assert.equal(name, "Dapp Token Farm");
+      const name = await DexLab.name();
+      assert.equal(name, "DexLab");
     });
 
     it("contract has tokens", async () => {
-      let balance = await dappToken.balanceOf(tokenFarm.address);
+      let balance = await ADot.balanceOf(DexLab.address);
       assert.equal(balance.toString(), tokens("1000000"));
     });
   });
@@ -56,7 +56,7 @@ contract("TokenFarm", ([owner, investor]) => {
       //   "investor Dapp wallet starts at 0"
       // );
 
-      // await linkToken.approve(tokenFarm.address, tokens("3"), {
+      // await linkToken.approve(DexLab.address, tokens("3"), {
       //   from: investor,
       // });
       // await tokenFarm.stakeTokens(tokens("100"), { from: investor });
