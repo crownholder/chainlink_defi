@@ -1,5 +1,5 @@
-const DappToken = artifacts.require("DappToken");
-const TokenFarm = artifacts.require("TokenFarm");
+const Antidote = artifacts.require("Antidote");
+const DexLab = artifacts.require("DexLab");
 const { LinkToken } = require("@chainlink/contracts/truffle/v0.4/LinkToken");
 
 require("chai")
