@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract TokenFarm is ChainlinkClient, Ownable {
-    string public name = "Dapp Token Farm";
+    string public name = "Antidote Exchange";
     IERC20 public dappToken;
 
     address[] public stakers;
